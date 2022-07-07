@@ -1,10 +1,10 @@
 package ru.javarush.cryptoanalyzer.sternard.Enumerations;
 
 public enum Actions {
-    ENCRYPTION("encryption"),
-    KEY_DECRYPTION("key_decryption"),
-    BRUTE_FORCE_DECRYPTION("brute_force"),
-    STAT_ANALYSE_DECRYPTION("statistic_analyse");
+    ENCRYPTION("ENCRYPTION"),
+    KEY_DECRYPTION("KEY_DECRYPTION"),
+    BRUTE_FORCE_DECRYPTION("BRUTE_FORCE_DECRYPTION"),
+    STAT_ANALYSE_DECRYPTION("STAT_ANALYSE_DECRYPTION");
 
     private final String action;
     Actions(String action) {
