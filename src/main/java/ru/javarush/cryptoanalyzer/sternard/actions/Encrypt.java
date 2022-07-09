@@ -1,28 +1,28 @@
 package ru.javarush.cryptoanalyzer.sternard.actions;
 
-import ru.javarush.cryptoanalyzer.sternard.exceptions.ActionsParamsExceptions;
+import ru.javarush.cryptoanalyzer.sternard.result.Result;
+import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
 
 import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
+import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.*;
 
-public class Encrypt {
+public class Encrypt extends EncryptDecrypt {
 
-    public String encryption(String textIn, int key) {
-        if(textIn.length() > 0) {
-            StringBuilder out = new StringBuilder();
-            for (int i = 0; i < textIn.length(); i++) {
-                for (int j = 0; j < ALPHABET_LENGTH; j++) {
-                    if (textIn.charAt(i) == ALPHABET[j]) {
-                        out.append(ALPHABET[((j + key) % ALPHABET_LENGTH)]);
-                    }
-                }
-            }
-            return out.toString();
-        }
-        else
-        {
-            throw new ActionsParamsExceptions("File is empty");
-        }
+    public void resultEncryptDecrypt(int j, int key) {
+        textOut.append(ALPHABET[((j + key) % ALPHABET_LENGTH)]);
     }
 
+    @Override
+    public Result returnExecute(String[] params) {
+        String fileName1 = params[1];
+        String fileName2 = params[2];
+        int key = Integer.parseInt(params[3]);
+        ReaderWriter readerWriter = new ReaderWriter();
+        String text = doEncryptDecrypt(readerWriter.reader(fileName1), key);
+        if(readerWriter.writer(fileName2, text))
+            return new Result(ResultCode.OK, ENCRYPTED);
+        else
+            return new Result(ResultCode.FAILED, NOT_ENCRYPTED);
+    }
 
 }

@@ -1,17 +1,23 @@
 package ru.javarush.cryptoanalyzer.sternard.Enumerations;
 
-public enum Actions {
-    ENCRYPTION("ENCRYPTION"),
-    KEY_DECRYPTION("KEY_DECRYPTION"),
-    BRUTE_FORCE_DECRYPTION("BRUTE_FORCE_DECRYPTION"),
-    STAT_ANALYSE_DECRYPTION("STAT_ANALYSE_DECRYPTION");
+import ru.javarush.cryptoanalyzer.sternard.actions.BruteForceDecrypt;
+import ru.javarush.cryptoanalyzer.sternard.actions.Decrypt;
+import ru.javarush.cryptoanalyzer.sternard.actions.Encrypt;
+import ru.javarush.cryptoanalyzer.sternard.actions.doAction;
 
-    private final String action;
-    Actions(String action) {
+public enum Actions {
+    ENCRYPTION(new Encrypt()),
+    KEY_DECRYPTION(new Decrypt()),
+    BRUTE_FORCE_DECRYPTION(new BruteForceDecrypt());
+//    STAT_ANALYSE_DECRYPTION("STAT_ANALYSE_DECRYPTION");
+
+    private final doAction action;
+    Actions(doAction action) {
         this.action = action;
     }
 
-    public String getAction() {
-        return action;
+    public doAction getAction(String command) {
+        return Actions.valueOf(command.toUpperCase()).action;
     }
+
 }

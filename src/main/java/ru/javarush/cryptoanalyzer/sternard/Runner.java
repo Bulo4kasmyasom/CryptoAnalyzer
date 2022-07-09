@@ -1,15 +1,10 @@
 package ru.javarush.cryptoanalyzer.sternard;
 
-import ru.javarush.cryptoanalyzer.sternard.Enumerations.Actions;
 import ru.javarush.cryptoanalyzer.sternard.controller.Controller;
+import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
+import ru.javarush.cryptoanalyzer.sternard.util.ConsoleColors;
 
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.ALPHABET_LENGTH;
-import static ru.javarush.cryptoanalyzer.sternard.constant.Errors.WRONG_PARAMETERS;
+import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.WRONG_PARAMETERS;
 
 public class Runner {
 
@@ -17,26 +12,23 @@ public class Runner {
     // KEY_DECRYPTION encrypted.txt decrypted.txt 55
     // BRUTE_FORCE_DECRYPTION encrypted.txt decrypted.txt
     // STAT_ANALYSE_DECRYPTION encrypted.txt decrypted.txt
-    /*
-         (^(ENCRYPTION|KEY_DECRYPTION)\s\w+\.txt\s\w+\.txt\s\d{1,2}$)|(^(BRUTE_FORCE_DECRYPTION|STAT_ANALYSE_DECRYPTION)\s\w+\.txt\s\w+\.txt$)
-     */
 
     public static void main(String[] args) {
-        if (args.length > 0 && args.length <= 5) {
-            String[] xxx = {"ENCRYPTION", "source.txt", "encrypted.txt", "1"}; // for tests
+        if (args.length > 0 && args.length <= 4) {
+//            String[] xxx = {"ENCRYPTION", "source.txt", "encrypted.txt", "22"}; // for tests
+
+//            String[] xxx = {"KEY_DECRYPTION", "encrypted.txt", "decrypted.txt", "22"}; // for tests
+
+            String[] xxx = {"BRUTE_FORCE_DECRYPTION", "encrypted.txt", "decrypted.txt"}; // for tests
+
+
             Controller controller = new Controller();
-            if(controller.checkParameters(xxx) == null)
-            {
-                System.out.println(WRONG_PARAMETERS);
+            if (controller.checkParameters(xxx) == ResultCode.ERROR) {
+                System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + WRONG_PARAMETERS + ConsoleColors.RESET);
                 return;
             }
-
-            controller.execute(controller.checkParameters(xxx));
+            System.out.println(controller.execute(xxx));
         }
-
-
-
-
 
 
 //        System.out.println("1. Шифровка текста\n2. Расшифровка с помощью ключа\n" +
