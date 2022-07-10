@@ -37,6 +37,6 @@ public class Result {
                     + ConsoleColors.RESET + ConsoleColors.YELLOW_BOLD_BRIGHT +
                     getMessage() + ConsoleColors.RESET;
         }
-        return "";
+        return ResultCode.OK + " " + getMessage();
     }
 }

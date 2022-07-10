@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.sternard.actions;
+package ru.javarush.cryptoanalyzer.sternard.controller;
 
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 
@@ -6,7 +6,7 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
 import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.FILE_EMPTY_ERROR;
 
 public abstract class EncryptDecrypt implements doAction {
-    StringBuilder textOut = new StringBuilder();
+    protected StringBuilder textOut = new StringBuilder();
 
     public String doEncryptDecrypt(String textIn, int key) {
         if (textIn.length() > 0) {
@@ -23,5 +23,5 @@ public abstract class EncryptDecrypt implements doAction {
         }
     }
 
-    public abstract void resultEncryptDecrypt(int j, int key);
+    protected abstract void resultEncryptDecrypt(int j, int key);
 }

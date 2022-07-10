@@ -1,5 +1,5 @@
 package ru.javarush.cryptoanalyzer.sternard.controller;
-import ru.javarush.cryptoanalyzer.sternard.Enumerations.Actions;
+import ru.javarush.cryptoanalyzer.sternard.Enumerations.EActions;
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 import ru.javarush.cryptoanalyzer.sternard.result.Result;
 import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
@@ -14,18 +14,18 @@ public class Controller {
     public ResultCode checkParameters(String[] params) {
         try {
             String action = params[0];
-            Actions.valueOf(action);
-            String regExp = "(^(" + action + ")\\s\\w+\\.txt\\s\\w+\\.txt(\\s\\d{1,2})?$)";
+            EActions.valueOf(action);
+            String regExp = "(^(" + action + ")(\\s\\w+\\.txt){2}(\\s\\d{1,2})?$)";
             Matcher matcher = Pattern.compile(regExp).matcher(String.join(" ", params));
             return (matcher.find()) ? ResultCode.OK : ResultCode.ERROR;
 
         } catch (IllegalArgumentException e) {
-            throw new HandlerExceptions(ACTION_NOT_FOUND + Arrays.toString(Actions.values()), e.getCause());
+            throw new HandlerExceptions(ACTION_NOT_FOUND + Arrays.toString(EActions.values()), e.getCause());
         }
     }
 
     public Result execute(String[] params) {
-        return Actions.valueOf(params[0]).getAction(params[0]).returnExecute(params);
+        return EActions.valueOf(params[0]).getAction(params[0]).returnExecute(params);
     }
 
 }

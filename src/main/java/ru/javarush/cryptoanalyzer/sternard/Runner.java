@@ -24,7 +24,7 @@ public class Runner {
 
             Controller controller = new Controller();
             if (controller.checkParameters(xxx) == ResultCode.ERROR) {
-                System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + WRONG_PARAMETERS + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.RED_BRIGHT + WRONG_PARAMETERS + ConsoleColors.RESET);
                 return;
             }
             System.out.println(controller.execute(xxx));

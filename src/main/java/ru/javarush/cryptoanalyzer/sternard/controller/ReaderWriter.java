@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.sternard.actions;
+package ru.javarush.cryptoanalyzer.sternard.controller;
 
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 import ru.javarush.cryptoanalyzer.sternard.util.PathFinder;
