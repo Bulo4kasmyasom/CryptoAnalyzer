@@ -1,6 +1,6 @@
 package ru.javarush.cryptoanalyzer.sternard.constant.language;
 
-public abstract class English {
+public class English {
 
     // errors constants
     public static final String WRONG_PARAMETERS = "Wrong parameters";
