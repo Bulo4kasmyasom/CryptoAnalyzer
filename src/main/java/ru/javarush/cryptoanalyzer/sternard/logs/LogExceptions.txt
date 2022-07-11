@@ -1,0 +1,18 @@
+11-07-2022 13:13:24
+java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+java.base/java.lang.Integer.parseInt(Integer.java:668)
+java.base/java.lang.Integer.parseInt(Integer.java:786)
+ru.javarush.cryptoanalyzer.sternard.console.MenuHandler.menuGetAction(MenuHandler.java:27)
+ru.javarush.cryptoanalyzer.sternard.console.MenuHandler.returnParamsFromMenu(MenuHandler.java:17)
+ru.javarush.cryptoanalyzer.sternard.controller.Controller.run(Controller.java:24)
+ru.javarush.cryptoanalyzer.sternard.Runner.main(Runner.java:16)
+----------------------------------------------------------------------------------------------------
+11-07-2022 14:58:51
+java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+java.base/java.lang.Integer.parseInt(Integer.java:668)
+java.base/java.lang.Integer.parseInt(Integer.java:786)
+ru.javarush.cryptoanalyzer.sternard.console.MenuHandler.menuGetAction(MenuHandler.java:27)
+ru.javarush.cryptoanalyzer.sternard.console.MenuHandler.returnParamsFromMenu(MenuHandler.java:17)
+ru.javarush.cryptoanalyzer.sternard.controller.Controller.run(Controller.java:24)
+ru.javarush.cryptoanalyzer.sternard.Runner.main(Runner.java:16)
+----------------------------------------------------------------------------------------------------

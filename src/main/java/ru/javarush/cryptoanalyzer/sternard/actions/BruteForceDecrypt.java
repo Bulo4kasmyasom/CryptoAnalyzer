@@ -2,12 +2,13 @@ package ru.javarush.cryptoanalyzer.sternard.actions;
 
 import ru.javarush.cryptoanalyzer.sternard.controller.ReaderWriter;
 import ru.javarush.cryptoanalyzer.sternard.controller.doAction;
-import ru.javarush.cryptoanalyzer.sternard.result.Result;
-import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
+import ru.javarush.cryptoanalyzer.sternard.result.*;
+import ru.javarush.cryptoanalyzer.sternard.util.PathFinder;
 
 import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.ALPHABET_LENGTH;
-import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.DECRYPTED;
-import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.NOT_DECRYPTED;
+import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.DECRYPTED;
+import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.NOT_DECRYPTED;
+import static ru.javarush.cryptoanalyzer.sternard.util.PathFinder.getTextDirectory;
 
 public class BruteForceDecrypt implements doAction {
 
@@ -22,13 +23,14 @@ public class BruteForceDecrypt implements doAction {
             ReaderWriter readerWriter = new ReaderWriter();
             Decrypt decrypt = new Decrypt();
 
-            String text = decrypt.doEncryptDecrypt(readerWriter.reader(fileName1), key);
+            String text = decrypt.doEncryptDecrypt(
+                    readerWriter.reader(PathFinder.getTextDirectory() + fileName1), key);
 
             long countOfSymbols = text.chars().filter(ch -> ch == ' ').count();
             long textLength = text.length();
 
             if (countOfSymbols > textLength / 10) {
-                readerWriter.writer(fileName2, text);
+                readerWriter.writer(getTextDirectory() + fileName2, text, false);
                 return new Result(ResultCode.OK, DECRYPTED);
             }
             key++;

@@ -3,7 +3,7 @@ package ru.javarush.cryptoanalyzer.sternard.controller;
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 
 import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
-import static ru.javarush.cryptoanalyzer.sternard.constant.LangConstantsENG.FILE_EMPTY_ERROR;
+import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.FILE_EMPTY_ERROR;
 
 public abstract class EncryptDecrypt implements doAction {
     protected StringBuilder textOut = new StringBuilder();
