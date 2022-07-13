@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.sternard.controller;
+package ru.javarush.cryptoanalyzer.sternard.application;
 
 import ru.javarush.cryptoanalyzer.sternard.result.Result;
 

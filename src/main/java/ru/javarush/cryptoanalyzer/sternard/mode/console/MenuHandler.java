@@ -1,6 +1,6 @@
-package ru.javarush.cryptoanalyzer.sternard.console;
+package ru.javarush.cryptoanalyzer.sternard.mode.console;
 
-import ru.javarush.cryptoanalyzer.sternard.Enumerations.EActions;
+import ru.javarush.cryptoanalyzer.sternard.application.EActions;
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 
 import java.util.Scanner;

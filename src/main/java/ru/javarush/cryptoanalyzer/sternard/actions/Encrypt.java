@@ -1,7 +1,7 @@
 package ru.javarush.cryptoanalyzer.sternard.actions;
 
-import ru.javarush.cryptoanalyzer.sternard.controller.EncryptDecrypt;
-import ru.javarush.cryptoanalyzer.sternard.controller.ReaderWriter;
+import ru.javarush.cryptoanalyzer.sternard.application.EncryptDecrypt;
+import ru.javarush.cryptoanalyzer.sternard.application.ReaderWriter;
 import ru.javarush.cryptoanalyzer.sternard.result.Result;
 import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
 import ru.javarush.cryptoanalyzer.sternard.util.PathFinder;
