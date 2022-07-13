@@ -24,7 +24,7 @@ public class MenuHandler extends ConsoleMenu{
 
     protected String menuGetAction() {
         try {
-            return switch (Integer.parseInt(scanner.nextLine())) { // nextInt() некорректно работает почему-то
+            return switch (Integer.parseInt(scanner.nextLine())) {
                 case 1 -> EActions.ENCRYPTION.name();
                 case 2 -> EActions.KEY_DECRYPTION.name();
                 case 3 -> EActions.BRUTE_FORCE_DECRYPTION.name();

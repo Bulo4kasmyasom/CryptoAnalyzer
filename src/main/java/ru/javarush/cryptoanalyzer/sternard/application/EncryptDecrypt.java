@@ -6,9 +6,11 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
 import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.FILE_EMPTY_ERROR;
 
 public abstract class EncryptDecrypt implements doAction {
-    protected final StringBuilder textOut = new StringBuilder();
+
+    protected StringBuilder textOut = new StringBuilder();
 
     public String doEncryptDecrypt(String textIn, int key) {
+        textOut.setLength(0);
         if (textIn.length() > 0) {
             for (int i = 0; i < textIn.length(); i++) {
                 for (int j = 0; j < ALPHABET_LENGTH; j++) {

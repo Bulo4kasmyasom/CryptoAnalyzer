@@ -11,26 +11,26 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.NOT_
 import static ru.javarush.cryptoanalyzer.sternard.util.PathFinder.getTextDirectory;
 
 public class BruteForceDecrypt implements doAction {
-
     @Override
     public Result returnExecute(String[] params) {
         String fileName1 = params[1];
         String fileName2 = params[2];
         int key = 0;
 
+        ReaderWriter readerWriter = new ReaderWriter();
+        Decrypt decrypt = new Decrypt();
+
+        String text = readerWriter.reader(PathFinder.getTextDirectory() + fileName1);
+        String textSubstr = text.substring(0,text.length()%5000);
+        long textSubstrLength = textSubstr.length();
+
         while (key < ALPHABET_LENGTH) {
+            String textSubstrings = decrypt.doEncryptDecrypt(textSubstr, key);
+            long countOfSymbols = textSubstrings.chars().filter(ch -> ch == ' ').count();
 
-            ReaderWriter readerWriter = new ReaderWriter();
-            Decrypt decrypt = new Decrypt();
-
-            String text = decrypt.doEncryptDecrypt(
-                    readerWriter.reader(PathFinder.getTextDirectory() + fileName1), key);
-
-            long countOfSymbols = text.chars().filter(ch -> ch == ' ').count();
-            long textLength = text.length();
-
-            if (countOfSymbols > textLength / 10) {
-                readerWriter.writer(getTextDirectory() + fileName2, text, false);
+            if (countOfSymbols > textSubstrLength / 10) {
+                String decryptedText = decrypt.doEncryptDecrypt(text, key);
+                readerWriter.writer(getTextDirectory() + fileName2, decryptedText, false);
                 return new Result(ResultCode.OK, DECRYPTED);
             }
             key++;

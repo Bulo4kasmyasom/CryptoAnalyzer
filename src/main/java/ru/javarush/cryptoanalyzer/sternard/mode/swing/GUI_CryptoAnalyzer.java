@@ -102,12 +102,9 @@ public class GUI_CryptoAnalyzer extends JFrame {
                 args = new String[]{action, sourceFileName, destinationFileName};
             }
 
-            Controller controller = new Controller();
-            JOptionPane.showMessageDialog(null, controller.execute(
-                            controller.checkParameters(args)).getMessage(),
-                    PROJECT_NAME, JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, new Controller().execute(args).getMessage(),
+                    PROJECT_NAME, JOptionPane.INFORMATION_MESSAGE,new ImageIcon(INFORMATION_MESSAGE_ICON));
         }
     }
-
 
 }

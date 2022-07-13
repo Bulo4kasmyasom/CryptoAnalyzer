@@ -20,6 +20,8 @@ public class English {
     public static final String SOURCE_FILE_NAME = "Source file name ( [A-Za-z0-9_].txt ):";
     public static final String DESTINATION_FILE_NAME = "Destination file name ( [A-Za-z0-9_].txt ):";
     public static final String ENTER_KEY = "Enter key:";
+    public static final String KEY_HIGHER_ALPHABET = "Key cannot be more than ";
+    public static final String SELECT_MODE_MENU = "Select the mode: ";
     public static final String ENCRYPT_WITH_KEY = " Encrypt file with a key";
     public static final String DECRYPT_WITH_KEY = " Decrypt file with a key";
     public static final String BRUTE_FORCE_DECRYPTION = " Brute force decryption";

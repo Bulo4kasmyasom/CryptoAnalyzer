@@ -5,6 +5,7 @@ import ru.javarush.cryptoanalyzer.sternard.mode.console.MenuHandler;
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 import ru.javarush.cryptoanalyzer.sternard.result.Result;
 import ru.javarush.cryptoanalyzer.sternard.mode.swing.GUI_CryptoAnalyzer;
+import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
 
 
 import java.util.Scanner;
@@ -42,7 +43,17 @@ public class Controller {
         try {
             String action = params[0];
             EActions.valueOf(action);
-            String checkParams = "(^(" + action + ")(\\s\\w+\\.txt){2}(\\s\\d{1,2})?$)";
+            String checkParams;
+            if(action.equals(EActions.BRUTE_FORCE_DECRYPTION.name()))
+                checkParams = "(^(" + action + ")(\\s\\w+\\.txt){2}$)";
+            else
+                checkParams = "(^(" + action + ")(\\s\\w+\\.txt){2}(\\s\\d{1,3})$)";
+            /*
+            Ещё был такой вариант (явно хуже, чем то, что выше):
+            (^(ENCRYPTION|KEY_DECRYPTION)(\s\w+\.txt){2}(\s\d{1,3})$)|(^(BRUTE_FORCE_DECRYPTION|STAT_ANALYSE_DECRYPTION)(\s\w+\.txt){2})$
+            или вместо ENCRYPTION и т.д. писать EActions.ENCRYPTION.name() ...
+             */
+
             Matcher matcher = Pattern.compile(checkParams).matcher(String.join(" ", params));
             if (matcher.find()) {
                 return params;
@@ -55,7 +66,7 @@ public class Controller {
     }
 
     public Result execute(String[] params) {
-        return EActions.valueOf(params[0]).getAction(params[0]).returnExecute(params);
+        return EActions.valueOf(params[0]).getAction(params[0]).returnExecute(checkParameters(params));
     }
 
 }
