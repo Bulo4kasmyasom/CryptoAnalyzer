@@ -10,9 +10,9 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.Settings.LOG_FILENAME
 import static ru.javarush.cryptoanalyzer.sternard.util.PathFinder.getLogExceptionsDirectory;
 
 public class WriteToLogs {
-    protected void writeToLogFileException(StackTraceElement[] stackTrace) {
+    protected void writeToLogFileException(String message, StackTraceElement[] stackTrace) {
         String dateTime = DateTimeFormatter.ofPattern(LOG_DATE_TIME_FORMAT).format(LocalDateTime.now());
-        StringBuilder str = new StringBuilder(dateTime + "\n");
+        StringBuilder str = new StringBuilder(dateTime + " : " + message + "\n");
         for (StackTraceElement txt : stackTrace) {
             str.append(txt).append("\n");
         }

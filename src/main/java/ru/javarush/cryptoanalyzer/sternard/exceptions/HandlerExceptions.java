@@ -11,9 +11,9 @@ public class HandlerExceptions extends RuntimeException {
     }
 
     public HandlerExceptions(String message, StackTraceElement[] stackTrace) {
-        showStackTraceOrNo(message);
         if(WRITE_TO_LOG_ERRORS)
-            new WriteToLogs().writeToLogFileException(stackTrace);
+            new WriteToLogs().writeToLogFileException(message, stackTrace);
+        showStackTraceOrNo(message);
     }
 
 

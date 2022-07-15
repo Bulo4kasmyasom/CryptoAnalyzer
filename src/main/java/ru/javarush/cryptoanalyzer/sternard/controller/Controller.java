@@ -5,7 +5,6 @@ import ru.javarush.cryptoanalyzer.sternard.mode.console.MenuHandler;
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 import ru.javarush.cryptoanalyzer.sternard.result.Result;
 import ru.javarush.cryptoanalyzer.sternard.mode.swing.GUI_CryptoAnalyzer;
-import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
 
 
 import java.util.Scanner;
