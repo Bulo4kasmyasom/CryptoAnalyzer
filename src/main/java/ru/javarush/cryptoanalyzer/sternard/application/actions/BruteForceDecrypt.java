@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.sternard.actions;
+package ru.javarush.cryptoanalyzer.sternard.application.actions;
 
 import ru.javarush.cryptoanalyzer.sternard.application.ReaderWriter;
 import ru.javarush.cryptoanalyzer.sternard.application.doAction;

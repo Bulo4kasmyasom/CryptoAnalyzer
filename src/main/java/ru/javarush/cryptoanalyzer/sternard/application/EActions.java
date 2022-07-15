@@ -1,8 +1,8 @@
 package ru.javarush.cryptoanalyzer.sternard.application;
 
-import ru.javarush.cryptoanalyzer.sternard.actions.BruteForceDecrypt;
-import ru.javarush.cryptoanalyzer.sternard.actions.Decrypt;
-import ru.javarush.cryptoanalyzer.sternard.actions.Encrypt;
+import ru.javarush.cryptoanalyzer.sternard.application.actions.BruteForceDecrypt;
+import ru.javarush.cryptoanalyzer.sternard.application.actions.Decrypt;
+import ru.javarush.cryptoanalyzer.sternard.application.actions.Encrypt;
 
 public enum EActions {
     ENCRYPTION(new Encrypt()),

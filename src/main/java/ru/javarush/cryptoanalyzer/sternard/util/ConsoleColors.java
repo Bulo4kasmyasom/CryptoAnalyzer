@@ -1,5 +1,6 @@
 package ru.javarush.cryptoanalyzer.sternard.util;
 
+@SuppressWarnings("unused")
 public interface ConsoleColors {
 
     // Reset

@@ -1,4 +1,4 @@
-package ru.javarush.cryptoanalyzer.sternard.actions;
+package ru.javarush.cryptoanalyzer.sternard.application.actions;
 
 import ru.javarush.cryptoanalyzer.sternard.application.EncryptDecrypt;
 import ru.javarush.cryptoanalyzer.sternard.application.ReaderWriter;
@@ -10,9 +10,9 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
 import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.*;
 import static ru.javarush.cryptoanalyzer.sternard.util.PathFinder.getTextDirectory;
 
-public class Encrypt extends EncryptDecrypt {
+public class Decrypt extends EncryptDecrypt {
     public void resultEncryptDecrypt(int j, int key) {
-        textOut.append(ALPHABET[((j + key) % ALPHABET_LENGTH)]);
+        textOut.append(ALPHABET[((j - key) + ALPHABET_LENGTH) % ALPHABET_LENGTH]);
     }
 
     @Override
@@ -27,9 +27,8 @@ public class Encrypt extends EncryptDecrypt {
                 readerWriter.reader(PathFinder.getTextDirectory() + fileName1), key);
 
         if(readerWriter.writer(getTextDirectory() + fileName2, text, false))
-            return new Result(ResultCode.OK, ENCRYPTED);
+            return new Result(ResultCode.OK, DECRYPTED);
         else
-            return new Result(ResultCode.FAILED, NOT_ENCRYPTED);
+            return new Result(ResultCode.FAILED, NOT_DECRYPTED);
     }
-
 }

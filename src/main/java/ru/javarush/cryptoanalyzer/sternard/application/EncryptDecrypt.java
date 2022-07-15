@@ -7,7 +7,7 @@ import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.FILE
 
 public abstract class EncryptDecrypt implements doAction {
 
-    protected StringBuilder textOut = new StringBuilder();
+    protected final StringBuilder textOut = new StringBuilder();
 
     public String doEncryptDecrypt(String textIn, int key) {
         textOut.setLength(0);
