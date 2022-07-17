@@ -2,7 +2,8 @@ package ru.javarush.cryptoanalyzer.sternard.application.actions;
 
 import ru.javarush.cryptoanalyzer.sternard.application.ReaderWriter;
 import ru.javarush.cryptoanalyzer.sternard.application.doAction;
-import ru.javarush.cryptoanalyzer.sternard.result.*;
+import ru.javarush.cryptoanalyzer.sternard.result.Result;
+import ru.javarush.cryptoanalyzer.sternard.result.ResultCode;
 import ru.javarush.cryptoanalyzer.sternard.util.PathFinder;
 
 import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.ALPHABET_LENGTH;
@@ -21,7 +22,7 @@ public class BruteForceDecrypt implements doAction {
         Decrypt decrypt = new Decrypt();
 
         String text = readerWriter.reader(PathFinder.getTextDirectory() + fileName1);
-        String textSubstr = text.substring(0,text.length()%5000);
+        String textSubstr = text.substring(0, text.length() % 5000);
         long textSubstrLength = textSubstr.length();
 
         while (key < ALPHABET_LENGTH) {

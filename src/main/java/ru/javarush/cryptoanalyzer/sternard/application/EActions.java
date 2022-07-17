@@ -8,9 +8,9 @@ public enum EActions {
     ENCRYPTION(new Encrypt()),
     KEY_DECRYPTION(new Decrypt()),
     BRUTE_FORCE_DECRYPTION(new BruteForceDecrypt());
-//    STAT_ANALYSE_DECRYPTION(new StatAnalyseDecrypt()));
 
     private final doAction action;
+
     EActions(doAction action) {
         this.action = action;
     }

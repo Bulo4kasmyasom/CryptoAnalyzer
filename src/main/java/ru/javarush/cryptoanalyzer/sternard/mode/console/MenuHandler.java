@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.*;
 
-public class MenuHandler extends ConsoleMenu{
+public class MenuHandler extends ConsoleMenu {
 
     public MenuHandler(Scanner scanner) {
         super(scanner);
@@ -30,8 +30,7 @@ public class MenuHandler extends ConsoleMenu{
                 case 3 -> EActions.BRUTE_FORCE_DECRYPTION.name();
                 default -> throw new HandlerExceptions(WRONG_PARAMETERS);
             };
-        }catch (NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             throw new HandlerExceptions(WRONG_PARAMETERS, e.getStackTrace());
         }
     }

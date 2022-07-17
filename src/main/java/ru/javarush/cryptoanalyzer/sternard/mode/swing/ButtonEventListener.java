@@ -8,8 +8,8 @@ import javax.swing.*;
 import static ru.javarush.cryptoanalyzer.sternard.constant.Settings.INFORMATION_MESSAGE_ICON;
 import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.PROJECT_NAME;
 
-public class ButtonEventListener implements FormFields{
-    protected void actionPerformed() {
+public class ButtonEventListener implements FormFields {
+    protected void executeAction() {
         String action;
         String sourceFileName = inputSourceFileName.getText();
         String destinationFileName = inputDestinationFileName.getText();
@@ -25,7 +25,7 @@ public class ButtonEventListener implements FormFields{
         }
 
         JOptionPane.showMessageDialog(null, new Application().execute(args).getMessage(),
-                PROJECT_NAME, JOptionPane.INFORMATION_MESSAGE,new ImageIcon(INFORMATION_MESSAGE_ICON));
+                PROJECT_NAME, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(INFORMATION_MESSAGE_ICON));
     }
 
 }

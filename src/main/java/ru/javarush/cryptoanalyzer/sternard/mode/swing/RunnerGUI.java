@@ -2,9 +2,10 @@ package ru.javarush.cryptoanalyzer.sternard.mode.swing;
 
 import javax.swing.*;
 import java.awt.*;
-import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.*;
 
-public class RunnerGUI extends JFrame  implements FormFields{
+import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.PROJECT_NAME;
+
+public class RunnerGUI extends JFrame implements FormFields {
     public void runGUI() {
         Container container = setParamsForm();
         addToButtonGroup();
@@ -36,10 +37,10 @@ public class RunnerGUI extends JFrame  implements FormFields{
         RadioEventListener radioEventListener = new RadioEventListener();
         ButtonEventListener buttonEventListener = new ButtonEventListener();
 
-        radioEncrypt.addActionListener(e->  radioEventListener.actionPerformed() );
-        radioDecrypt.addActionListener(e-> radioEventListener.actionPerformed());
-        radioBruteForceDec.addActionListener(e-> radioEventListener.actionPerformed() );
-        button.addActionListener(e-> buttonEventListener.actionPerformed() );
+        radioEncrypt.addActionListener(e -> radioEventListener.chooseAction());
+        radioDecrypt.addActionListener(e -> radioEventListener.chooseAction());
+        radioBruteForceDec.addActionListener(e -> radioEventListener.chooseAction());
+        button.addActionListener(e -> buttonEventListener.executeAction());
     }
 
     private void addToForm(Container container) {

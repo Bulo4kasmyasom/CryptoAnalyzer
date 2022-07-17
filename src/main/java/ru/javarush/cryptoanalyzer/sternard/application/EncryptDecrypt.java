@@ -2,7 +2,8 @@ package ru.javarush.cryptoanalyzer.sternard.application;
 
 import ru.javarush.cryptoanalyzer.sternard.exceptions.HandlerExceptions;
 
-import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.*;
+import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.ALPHABET;
+import static ru.javarush.cryptoanalyzer.sternard.constant.Alphabet.ALPHABET_LENGTH;
 import static ru.javarush.cryptoanalyzer.sternard.constant.language.English.FILE_EMPTY_ERROR;
 
 public abstract class EncryptDecrypt implements doAction {

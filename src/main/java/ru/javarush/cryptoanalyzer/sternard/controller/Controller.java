@@ -10,11 +10,12 @@ import static ru.javarush.cryptoanalyzer.sternard.util.ConsoleColors.*;
 
 public class Controller {
     final Application application = new Application();
+
     public void run(String[] args) {
         if (args.length > 0 && args.length <= 4) {
             application.runWithArgs(args);
         } else {
-            System.out.println(GUI_OR_CONSOLE);
+            System.out.println(CYAN_BOLD + GUI_OR_CONSOLE + RESET);
             Scanner scan = new Scanner(System.in);
             String GUIorConsole = scan.nextLine();
 
